@@ -33,7 +33,7 @@ namespace SuperHeroSimulation
 
         public string BossAttack()
         {
-            return _rand.Next(0, 2) == 0 ? "left" : "right";  // Attack from left or right
+            return _rand.Next(0, 2) == 0 ? "left" : "right";  
         }
         #endregion
     }

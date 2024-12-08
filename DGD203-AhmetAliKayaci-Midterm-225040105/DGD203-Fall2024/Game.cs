@@ -12,8 +12,8 @@ namespace SuperHeroSimulation
         public void StartGame()
         {
             Console.WriteLine("Welcome to the Super Hero Simulation!");
-            ChooseHero();  // Player chooses their hero
-            StartBossFight();  // Boss fight starts
+            ChooseHero();  
+            StartBossFight();  
         }
 
         private void ChooseHero()
@@ -40,10 +40,8 @@ namespace SuperHeroSimulation
 
             while (_boss.IsAlive() && _turnCount < 4)
             {
-                _boss.TakeDamage(0); // Show boss status
-                string bossAttackSide = _boss.BossAttack(); // Boss attack
-
-                // Intelligence and dodge check
+                _boss.TakeDamage(0); 
+                string bossAttackSide = _boss.BossAttack(); 
                 if (_player.Intelligence < 5)
                 {
                     Console.WriteLine("Your intelligence is low, you cannot predict which side the boss will attack from!");
@@ -66,17 +64,15 @@ namespace SuperHeroSimulation
                     if (_player.Speed < 5)
                     {
                         Console.WriteLine("But your speed is low, you were slow and got a little hurt!");
-                        _player.TakeDamage(_boss.Damage / 2); // Take a little damage if slow
+                        _player.TakeDamage(_boss.Damage / 2); 
                     }
                 }
                 else
                 {
                     Console.WriteLine("You dodged the wrong way! The boss hit you.");
-                    _player.TakeDamage(100); // Death condition
+                    _player.TakeDamage(100); 
                     break;
                 }
-
-                // Counter move: Head or Chest
                 Console.WriteLine("It's time for your counter-attack!");
                 Console.WriteLine("1 - Head");
                 Console.WriteLine("2 - Chest");
@@ -86,8 +82,6 @@ namespace SuperHeroSimulation
                 _boss.TakeDamage(damageDealt);
 
                 Console.WriteLine($"{_player.Name} dealt {damageDealt} damage to the {attackTarget}.");
-
-                // If boss is dead, player wins
                 if (!_boss.IsAlive())
                 {
                     Console.WriteLine($"{_player.Name} defeated the boss!");
